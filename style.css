@@ -1,0 +1,626 @@
+/* Lidea Workneh Portfolio */
+
+/* The Color palette >< */
+:root {
+    --ink: #242b2b;
+    --muted: #68716f;
+    --cream: #fbf8f2;
+    --paper: #fffdf9;
+    --sage: #dfe7df;
+    --sage-dark: #536d60;
+    --line: #e6e1d8;
+    --accent: #b78362;
+}
+
+/* My General styling */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--paper);
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+a {
+    color: inherit;
+}
+
+/* Navigation */
+.site-nav {
+    padding: 22px 0;
+    background: rgba(255, 253, 249, 0.94);
+    border-bottom: 1px solid rgba(230, 225, 216, 0.8);
+}
+
+.nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.brand {
+    color: var(--ink);
+    font-family: "Playfair Display", serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -2px;
+    text-decoration: none;
+}
+
+.brand span {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #4e5754;
+    font-size: 0.88rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.back-top:hover {
+    color: var(--accent);
+}
+
+/* Hero section */
+.hero-section {
+    padding: 88px 0 100px;
+    background: var(--cream);
+    overflow: hidden;
+}
+
+.eyebrow,
+.section-kicker,
+.strip-label,
+.project-number {
+    color: var(--sage-dark);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.eyebrow-line {
+    display: inline-block;
+    width: 30px;
+    height: 1px;
+    background: var(--accent);
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+}
+
+h1 {
+    max-width: 650px;
+    margin: 0 0 22px;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 1.08;
+    letter-spacing: -2.5px;
+}
+
+h1 span {
+    color: var(--sage-dark);
+}
+
+.hero-copy {
+    max-width: 570px;
+    margin-bottom: 12px;
+    color: #4d5854;
+    font-size: 1.2rem;
+    line-height: 1.7;
+}
+
+.hero-note {
+    color: var(--muted);
+    font-size: 0.94rem;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+/* Buttons */
+.custom-btn,
+.custom-outline-btn {
+    border-radius: 2px;
+    padding: 13px 20px;
+    font-size: 0.88rem;
+}
+
+.custom-btn {
+    background: var(--ink);
+    border-color: var(--ink);
+}
+
+.custom-btn:hover {
+    background: var(--sage-dark);
+    border-color: var(--sage-dark);
+}
+
+.custom-outline-btn {
+    border-color: #b9beb7;
+}
+
+.custom-outline-btn:hover {
+    background: var(--sage);
+    color: var(--ink);
+    border-color: var(--sage);
+}
+
+/* My profile picture ^^*/
+.portrait-wrap {
+    position: relative;
+    max-width: 390px;
+    margin: 0 auto;
+    padding: 0 18px 20px 0;
+}
+
+.profile-photo {
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 475px;
+    object-fit: cover;
+    object-position: center 28%;
+    border-radius: 190px 190px 4px 4px;
+    filter: saturate(0.84);
+}
+
+.portrait-wrap::before {
+    position: absolute;
+    content: "";
+    top: 18px;
+    right: 0;
+    bottom: 0;
+    left: 18px;
+    border: 1px solid #c9d3c9;
+    border-radius: 190px 190px 4px 4px;
+}
+
+.photo-caption {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    width: fit-content;
+    margin: -25px 0 0 -25px;
+    padding: 13px 17px;
+    background: var(--paper);
+    box-shadow: 0 8px 30px rgba(36, 43, 43, 0.08);
+    font-size: 0.78rem;
+}
+
+.caption-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+.portrait-decoration {
+    position: absolute;
+    z-index: 2;
+    right: -2px;
+    top: 48px;
+    color: #fffdf9;
+    font-family: "Playfair Display", serif;
+    font-size: 2rem;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+.intro-strip {
+    padding: 26px 0 18px;
+    border-bottom: 1px solid var(--line);
+    background: var(--paper);
+}
+
+.strip-label {
+    margin: 0 0 3px;
+    font-size: 0.65rem;
+}
+
+.strip-value {
+    margin: 0;
+    font-family: "Playfair Display", serif;
+    font-size: 1rem;
+}
+
+/* Main sections ^^ */
+.content-section,
+.experience-section,
+.projects-section {
+    padding: 100px 0;
+}
+
+.section-kicker {
+    margin: 0 0 16px;
+}
+
+.section-title {
+    margin: 0;
+    font-size: clamp(2.1rem, 4vw, 3.2rem);
+    line-height: 1.2;
+    letter-spacing: -1px;
+}
+
+.about-lead {
+    margin: 0 0 18px;
+    font-family: "Playfair Display", serif;
+    font-size: 1.45rem;
+    line-height: 1.55;
+}
+
+.body-copy {
+    color: var(--muted);
+    font-size: 0.96rem;
+}
+
+/* About section note <3 */
+.soft-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-top: 28px;
+    padding: 20px 22px;
+    background: #f2f4ef;
+}
+
+.soft-note p {
+    margin: 0;
+    color: #59645e;
+    font-size: 0.9rem;
+}
+
+.soft-note strong {
+    color: var(--ink);
+    font-size: 0.92rem;
+}
+
+.note-mark {
+    color: var(--accent);
+    font-size: 1.35rem;
+}
+
+/* My experience section >< */
+.experience-section {
+    background: var(--cream);
+}
+
+.experience-card {
+    padding: 30px;
+    border: 1px solid var(--line);
+    background: var(--paper);
+}
+
+.experience-topline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.pill {
+    padding: 6px 10px;
+    background: var(--sage);
+    color: #405749;
+    font-size: 0.63rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.experience-date {
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+.experience-card h3,
+.project-card h3 {
+    margin: 0 0 13px;
+    font-size: 1.6rem;
+}
+
+.at-sign {
+    color: var(--accent);
+}
+
+.clean-list {
+    padding-left: 20px;
+    margin: 18px 0 0;
+    color: var(--muted);
+    font-size: 0.91rem;
+}
+
+.clean-list li {
+    margin: 8px 0;
+    padding-left: 4px;
+}
+
+.clean-list li::marker {
+    color: var(--accent);
+}
+
+/* Skills */
+.skills-block {
+    margin-top: 30px;
+}
+
+.small-heading {
+    margin-bottom: 16px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.skill-tags span {
+    padding: 7px 12px;
+    border: 1px solid #dcded7;
+    color: #58625d;
+    font-size: 0.78rem;
+}
+
+/* My projects ^^ */
+.projects-section {
+    background: var(--paper);
+}
+
+.section-heading-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 24px;
+    margin-bottom: 34px;
+}
+
+.section-heading-row .body-copy {
+    max-width: 260px;
+    margin: 0 0 5px;
+}
+
+.project-card {
+    height: 100%;
+    min-height: 270px;
+    padding: 32px;
+    border: 1px solid var(--line);
+    background: #f5f4ee;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(36, 43, 43, 0.07);
+}
+
+.project-number {
+    margin-bottom: 26px;
+    font-size: 0.65rem;
+}
+
+.project-card h3 {
+    font-size: 1.7rem;
+}
+
+.project-card .body-copy {
+    max-width: 460px;
+}
+
+.project-card-dark {
+    background: #e7ece5;
+    border-color: #e7ece5;
+}
+
+.text-link {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--sage-dark);
+    font-size: 0.87rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid #9cac9f;
+}
+
+.text-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* Contact section !!!! */
+.contact-section {
+    padding: 75px 0;
+    background: #e7ece5;
+}
+
+.contact-inner {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 35px;
+}
+
+.contact-inner > div {
+    max-width: 650px;
+}
+
+.contact-inner .section-title {
+    max-width: 590px;
+    margin-bottom: 16px;
+}
+
+.contact-inner .body-copy {
+    max-width: 550px;
+    margin: 0;
+}
+
+.contact-inner .btn {
+    flex-shrink: 0;
+}
+
+/* Footer */
+.site-footer {
+    padding: 22px 0;
+    background: var(--paper);
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-inner .brand {
+    font-size: 1.4rem;
+}
+
+.footer-inner p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.75rem;
+}
+
+.back-top {
+    color: var(--ink);
+    font-size: 0.78rem;
+    text-decoration: none;
+}
+
+@media (max-width: 767px) {
+    .site-nav {
+        padding: 16px 0;
+    }
+
+    .nav-inner {
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+        padding-top: 8px;
+    }
+
+    .nav-links a {
+        font-size: 0.78rem;
+    }
+
+    .hero-section {
+        padding: 60px 0 75px;
+    }
+
+    h1 {
+        font-size: clamp(2.8rem, 12vw, 4rem);
+        letter-spacing: -1.5px;
+    }
+
+    .hero-copy {
+        font-size: 1.05rem;
+    }
+
+    .portrait-wrap {
+        max-width: 320px;
+        margin-top: 8px;
+    }
+
+    .profile-photo {
+        height: 390px;
+    }
+
+    .content-section,
+    .experience-section,
+    .projects-section {
+        padding: 68px 0;
+    }
+
+    .section-heading-row,
+    .contact-inner {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .section-heading-row .body-copy {
+        max-width: 100%;
+    }
+
+    .experience-card,
+    .project-card {
+        padding: 24px;
+    }
+
+    .contact-section {
+        padding: 60px 0;
+    }
+
+    .footer-inner {
+        flex-wrap: wrap;
+    }
+}
+
+/* So Small phone screens >< */
+@media (max-width: 420px) {
+    .nav-inner {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .nav-links {
+        justify-content: flex-start;
+    }
+
+    .strip-value {
+        font-size: 0.78rem;
+    }
+
+    .strip-label {
+        letter-spacing: 1px;
+        font-size: 0.58rem;
+    }
+
+    .photo-caption {
+        margin-left: -8px;
+    }
+
+    .footer-inner p {
+        order: 3;
+        flex-basis: 100%;
+    }
+}
